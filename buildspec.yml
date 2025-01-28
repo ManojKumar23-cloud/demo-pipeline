@@ -6,17 +6,18 @@ phases:
       python: 3.8
     commands:
       - pip install -r app/requirements.txt
-      - pip install pytest 
+      - pip install pytest
       - python --version
-      - pip list
+      - pip list  # Show installed packages
+  
   build:
     commands:
-      - ls -R
-      - pwd
-      - export PYTHONPATH=$(pwd)  # Add the current directory to PYTHONPATH
-      - python -c "import sys; print(sys.path)"
-      - echo $PYTHONPATH
-      - pytest -v test/ --junitxml=report.xml
+      - ls -R  # Show directory structure
+      - pwd    # Show current directory
+      - export PYTHONPATH=$(pwd)
+      - python -c "import sys; print(sys.path)"  # Print Python path
+      - pytest -v test/ --junitxml=report.xml -s  # Add -s for more verbose output
+  
   post_build:
     commands:
       - echo "Build and test complete."
@@ -26,3 +27,9 @@ reports:
     files:
       - report.xml
     base-directory: ./
+
+artifacts:
+  files:
+    - '**/*'
+  name: myproject-$(date +%Y-%m-%d-%H-%M-%S).zip
+  base-directory: '.'
