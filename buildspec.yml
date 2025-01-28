@@ -9,6 +9,7 @@ phases:
       - pip install pytest
   build:
     commands:
+      - ls -R
       - pytest tests/test_main.py --junitxml=report.xml
   post_build:
     commands:
