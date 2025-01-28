@@ -1,5 +1,5 @@
 import unittest
-from main import app
+from app.main import app
 
 class TestMain(unittest.TestCase):
     def test_home(self):
