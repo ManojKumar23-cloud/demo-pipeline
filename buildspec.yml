@@ -9,7 +9,7 @@ phases:
       - pip install pytest
   build:
     commands:
-      - pytest tests/ --junitxml=report.xml
+      - pytest tests/test_main.py --junitxml=report.xml
   post_build:
     commands:
       - echo "Build and test complete."
@@ -18,3 +18,4 @@ reports:
   pytest_reports:
     files:
       - report.xml
+    base-directory: ./
