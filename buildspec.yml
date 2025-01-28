@@ -10,7 +10,8 @@ phases:
   build:
     commands:
       - ls -R
-      - pytest -v ./test/ --junitxml=report.xml
+      - export PYTHONPATH=$(pwd)  # Add the current directory to PYTHONPATH
+      - pytest -v test/ --junitxml=report.xml
   post_build:
     commands:
       - echo "Build and test complete."
