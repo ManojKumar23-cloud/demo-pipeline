@@ -1,20 +1,20 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      python: 3.8
-    commands:
-      - pip install -r app/requirements.txt
-      - pip install pytest
-  build:
-    commands:
-      - pytest tests/ --junitxml=report.xml
-  post_build:
-    commands:
-      - echo "Build and test complete."
-      
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - pip install -r app/requirements.txt
+      - pip install pytest
+  build:
+    commands:
+      - pytest tests/ --junitxml=report.xml
+  post_build:
+    commands:
+      - echo "Build and test complete."
+
 reports:
-  pytest_reports:
-    files:
-      - report.xml
+  pytest_reports:
+    files:
+      - report.xml
