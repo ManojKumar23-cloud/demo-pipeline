@@ -6,11 +6,16 @@ phases:
       python: 3.8
     commands:
       - pip install -r app/requirements.txt
-      - pip install pytest
+      - pip install pytest 
+      - python --version
+      - pip list
   build:
     commands:
       - ls -R
+      - pwd
       - export PYTHONPATH=$(pwd)  # Add the current directory to PYTHONPATH
+      - python -c "import sys; print(sys.path)"
+      - echo $PYTHONPATH
       - pytest -v test/ --junitxml=report.xml
   post_build:
     commands:
