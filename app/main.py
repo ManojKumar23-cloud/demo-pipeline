@@ -3,6 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    print("This is My Demo lab website")  # This will print to the terminal
     return 'Hello, CI/CD Testing!'  #TEST
 
 if __name__ == '__main__':
