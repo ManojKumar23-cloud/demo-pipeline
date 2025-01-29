@@ -1,5 +1,5 @@
 #!/bin/bash
 cd /var/www/html/app
-python3 main.py &
+gunicorn -b 127.0.0.1:5000 main:app --daemon 
 systemctl start httpd
 systemctl enable httpd
