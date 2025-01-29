@@ -2,6 +2,7 @@
 yum install -y python3 pip
 sudo yum install -y httpd
 pip3 install flask
+pip3 install gunicorn
 pkill -f "python3 main.py"
 cat > /etc/httpd/conf.d/myapp.conf << 'EOF'
 <VirtualHost *:80>
