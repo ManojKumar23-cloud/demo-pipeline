@@ -1,6 +1,6 @@
 #!/bin/bash
 yum install -y python3 pip
-sudo yum install httpd
+sudo yum install -y httpd
 pip3 install flask
 pkill -f "python3 main.py"
 cat > /etc/httpd/conf.d/myapp.conf << 'EOF'
